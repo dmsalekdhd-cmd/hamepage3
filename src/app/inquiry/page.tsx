@@ -28,12 +28,13 @@ export default function InquiryPage() {
   }, [supabase]);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then((res: any) => {
+      const session = res.data?.session;
       setUser(session?.user ?? null);
       if (session?.user) fetchInquiries(session.user.id);
       setLoading(false);
     });
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_e: any, session: any) => {
       setUser(session?.user ?? null);
       if (session?.user) fetchInquiries(session.user.id);
     });

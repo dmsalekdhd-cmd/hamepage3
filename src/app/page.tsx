@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const features = [
   {
-    icon: '🏺',
+    imageUrl: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80',
     title: '아라비안 야외 파크',
     desc: '야자수와 황금 아치 아래 유수풀·파도풀·미끄럼틀을 즐기세요',
     href: '/outdoor',
@@ -16,10 +16,9 @@ const features = [
     border: 'border-gold-200',
     badge: '50,000원 / 1일',
     badgeClass: 'badge-gold',
-    icon2: '🌴',
   },
   {
-    icon: '🏊',
+    imageUrl: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80',
     title: '실내 25m 수영장',
     desc: '채광 가득한 넓은 레인과 쾌적한 휴식 공간의 실내 수영장',
     href: '/indoor',
@@ -27,10 +26,9 @@ const features = [
     border: 'border-sky-200',
     badge: '10,000원 / 1회',
     badgeClass: 'badge-sky',
-    icon2: '☀️',
   },
   {
-    icon: '🔥',
+    imageUrl: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80',
     title: '평상 & BBQ',
     desc: '아라비안 천막 아래 평상에서 고기를 구워먹는 특별한 경험',
     href: '/outdoor#pavilion',
@@ -38,7 +36,6 @@ const features = [
     border: 'border-amber-200',
     badge: '야외권 포함',
     badgeClass: 'badge-gold',
-    icon2: '🍖',
   },
 ];
 
@@ -47,6 +44,13 @@ const stats = [
   { value: '4종', label: '야외 어트랙션' },
   { value: '09-18', label: '운영 시간' },
   { value: '인천', label: '남동구 위치' },
+];
+
+const outdoorHighlights = [
+  { imageUrl: 'https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&w=400&q=80', name: '유수풀', desc: '야자수 따라 흐르는 물길', color: 'from-gold-50 to-amber-100', border: 'border-gold-200' },
+  { imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80', name: '파도풀', desc: '하와이 스타일 파도 체험', color: 'from-sky-50 to-teal-100', border: 'border-sky-200' },
+  { imageUrl: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=400&q=80', name: '미끄럼틀', desc: '짜릿한 워터슬라이드', color: 'from-orange-50 to-amber-100', border: 'border-orange-200' },
+  { imageUrl: 'https://images.unsplash.com/photo-1562088287-bde35a1ea917?auto=format&fit=crop&w=400&q=80', name: '영유아풀', desc: '안전한 아이 전용 풀', color: 'from-teal-50 to-sky-100', border: 'border-teal-200' },
 ];
 
 export default function HomePage() {
@@ -221,14 +225,16 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.map((feat) => (
               <Link key={feat.href} href={feat.href} className="group">
-                <div className={`card-arabian ${feat.bg} border ${feat.border} h-full p-8
-                  group-hover:scale-[1.02] group-hover:shadow-card-lg transition-all duration-500 cursor-pointer`}>
-                  <div className="flex items-center gap-2 text-5xl mb-5">
-                    <span className="group-hover:animate-float">{feat.icon}</span>
-                    <span className="group-hover:animate-sway">{feat.icon2}</span>
+                <div className={`card-arabian ${feat.bg} border ${feat.border} h-full p-6
+                  group-hover:scale-[1.02] group-hover:shadow-card-lg transition-all duration-500 cursor-pointer flex flex-col`}>
+                  
+                  {/* Real Image instead of Emoji */}
+                  <div className="relative w-full h-48 rounded-2xl overflow-hidden mb-5 border border-gold-100 shadow-sm">
+                    <img src={feat.imageUrl} alt={feat.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
+
                   <h3 className="font-display text-gold-700 text-xl mb-3">{feat.title}</h3>
-                  <p className="text-stone-500 font-body text-sm leading-relaxed mb-6">{feat.desc}</p>
+                  <p className="text-stone-500 font-body text-sm leading-relaxed mb-6 flex-grow">{feat.desc}</p>
                   <div className="flex items-center justify-between">
                     <span className={feat.badgeClass}>{feat.badge}</span>
                     <span className="text-gold-400 group-hover:text-gold-600 group-hover:translate-x-1 transition-all">→</span>
@@ -244,26 +250,7 @@ export default function HomePage() {
       <section className="py-20 relative overflow-hidden">
         {/* 밝은 하늘+모래 배경 */}
         <div className="absolute inset-0 bg-gradient-to-b from-sky-100 to-sand-100" />
-        {/* 야자수 왼쪽 배경 장식 */}
-        <div className="absolute left-0 bottom-0 w-40 h-64 opacity-30 pointer-events-none">
-          <svg viewBox="0 0 100 220" className="w-full h-full">
-            <path d="M52 220 Q50 185 47 150 Q49 115 52 85 Q50 55 53 30" stroke="#a16207" strokeWidth="6" fill="none" strokeLinecap="round"/>
-            <ellipse cx="53" cy="30" rx="30" ry="7" fill="#15803d" transform="rotate(-35 53 30)"/>
-            <ellipse cx="53" cy="27" rx="27" ry="6" fill="#22c55e" transform="rotate(25 53 27)"/>
-            <ellipse cx="53" cy="24" rx="25" ry="6" fill="#15803d" transform="rotate(-60 53 24)"/>
-            <ellipse cx="53" cy="21" rx="23" ry="5" fill="#22c55e" transform="rotate(55 53 21)"/>
-          </svg>
-        </div>
-        <div className="absolute right-0 bottom-0 w-40 h-64 opacity-30 pointer-events-none transform scale-x-[-1]">
-          <svg viewBox="0 0 100 220" className="w-full h-full">
-            <path d="M52 220 Q50 185 47 150 Q49 115 52 85 Q50 55 53 30" stroke="#a16207" strokeWidth="6" fill="none" strokeLinecap="round"/>
-            <ellipse cx="53" cy="30" rx="30" ry="7" fill="#15803d" transform="rotate(-35 53 30)"/>
-            <ellipse cx="53" cy="27" rx="27" ry="6" fill="#22c55e" transform="rotate(25 53 27)"/>
-            <ellipse cx="53" cy="24" rx="25" ry="6" fill="#15803d" transform="rotate(-60 53 24)"/>
-            <ellipse cx="53" cy="21" rx="23" ry="5" fill="#22c55e" transform="rotate(55 53 21)"/>
-          </svg>
-        </div>
-
+        
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <div className="text-center mb-14">
             <div className="badge-gold mb-4 mx-auto w-fit">🌴 아라비안나이트 × 트로피컬</div>
@@ -276,15 +263,15 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-            {[
-              { icon: '🌀', name: '유수풀',    desc: '야자수 따라 흐르는 물길', color: 'from-gold-50 to-amber-100', border: 'border-gold-200' },
-              { icon: '🌊', name: '파도풀',    desc: '하와이 스타일 파도 체험', color: 'from-sky-50 to-teal-100',  border: 'border-sky-200' },
-              { icon: '🎢', name: '미끄럼틀',  desc: '짜릿한 워터슬라이드',    color: 'from-orange-50 to-amber-100', border: 'border-orange-200' },
-              { icon: '🐣', name: '영유아풀', desc: '안전한 아이 전용 풀',    color: 'from-teal-50 to-sky-100',  border: 'border-teal-200' },
-            ].map((item) => (
+            {outdoorHighlights.map((item) => (
               <div key={item.name} className={`group rounded-2xl bg-gradient-to-br ${item.color} border ${item.border}
-                p-6 text-center shadow-card hover:shadow-card-lg hover:scale-105 transition-all duration-300`}>
-                <div className="text-4xl mb-3 group-hover:animate-float">{item.icon}</div>
+                p-4 text-center shadow-card hover:shadow-card-lg hover:scale-105 transition-all duration-300 flex flex-col`}>
+                
+                {/* Real Image instead of Emoji */}
+                <div className="relative w-full h-32 rounded-xl overflow-hidden mb-3 border border-sand-200">
+                  <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover" />
+                </div>
+
                 <div className="font-display text-gold-700 text-sm mb-1">{item.name}</div>
                 <div className="text-stone-500 text-xs font-body">{item.desc}</div>
               </div>
@@ -294,8 +281,10 @@ export default function HomePage() {
           {/* 평상 BBQ 카드 */}
           <div className="card-arabian bg-gradient-to-r from-amber-50 to-gold-50 border-gold-200 p-8">
             <div className="flex flex-col md:flex-row items-center gap-6">
-              <div className="text-5xl flex gap-3 animate-float">🔥🍖🌴</div>
-              <div className="flex-1 text-center md:text-left">
+              <div className="relative w-full md:w-48 h-32 rounded-2xl overflow-hidden border border-gold-200 flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80" alt="BBQ" className="w-full h-full object-cover" />
+              </div>
+              <div className="flex-grow text-center md:text-left">
                 <h3 className="font-display text-gold-700 text-xl mb-2">아라비안 평상 & BBQ</h3>
                 <p className="text-stone-500 font-body text-sm leading-relaxed">
                   야자수와 황금 천막 아래 목재 평상에서 여유로운 휴식과 BBQ를 즐기세요.<br/>
@@ -360,7 +349,11 @@ export default function HomePage() {
       {/* ══ CTA ══════════════════════════════════════ */}
       <section className="py-20 px-4 bg-gradient-to-r from-gold-50 via-amber-50 to-sky-50">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="text-5xl mb-4 animate-float">🌴☀️🌊</div>
+          <div className="flex justify-center gap-3 mb-6">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=150&q=80" className="w-16 h-16 rounded-full object-cover border border-gold-200 shadow-sm" alt="Pool" />
+            <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=150&q=80" className="w-16 h-16 rounded-full object-cover border border-gold-200 shadow-sm" alt="Cabana" />
+            <img src="https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&w=150&q=80" className="w-16 h-16 rounded-full object-cover border border-gold-200 shadow-sm" alt="Beach" />
+          </div>
           <h2 className="font-arabic text-3xl md:text-4xl text-gold-600 mb-4 tracking-widest">
             지금 바로 시작하세요
           </h2>

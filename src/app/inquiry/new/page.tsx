@@ -23,7 +23,8 @@ export default function NewInquiryPage() {
   const [isPrivate, setIsPrivate] = useState(true);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then((res: any) => {
+      const session = res.data?.session;
       setUser(session?.user ?? null);
       setLoading(false);
     });

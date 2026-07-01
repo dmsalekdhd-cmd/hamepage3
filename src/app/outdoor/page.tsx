@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const attractions = [
   {
-    icon: '🌀',
+    imageUrl: 'https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&w=600&q=80',
     name: '유수풀',
     eng: 'Lazy River',
     desc: '야자수와 황금 아라비안 조형물이 늘어선 느긋한 유수풀. 튜브를 타고 이국적인 풍경을 감상하세요.',
@@ -17,7 +17,7 @@ const attractions = [
     features: ['튜브 대여 가능', '성인·어린이 모두 이용', '전장 약 150m'],
   },
   {
-    icon: '🌊',
+    imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
     name: '파도풀',
     eng: 'Wave Pool',
     desc: '실감 나는 파도가 주기적으로 일어나는 대형 파도풀. 하와이 바다 느낌을 내륙에서 즐겨보세요!',
@@ -26,7 +26,7 @@ const attractions = [
     features: ['시간별 파도 운영', '구명조끼 대여 가능', '안전요원 상주'],
   },
   {
-    icon: '🎢',
+    imageUrl: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=600&q=80',
     name: '미끄럼틀',
     eng: 'Water Slide',
     desc: '아라비안 탑 형태의 워터슬라이드. 높이에서 내려오는 짜릿함과 함께 탁 트인 풍경을 즐겨보세요.',
@@ -35,7 +35,7 @@ const attractions = [
     features: ['2종 슬라이드', '키 110cm 이상 이용', '안전 계단 완비'],
   },
   {
-    icon: '🐣',
+    imageUrl: 'https://images.unsplash.com/photo-1562088287-bde35a1ea917?auto=format&fit=crop&w=600&q=80',
     name: '영유아 수영장',
     eng: 'Kids Pool',
     desc: '영유아 전용 안전 수영장. 수심이 얕고 야자수 그늘 아래 설치되어 아이들이 안심하고 즐길 수 있어요.',
@@ -138,16 +138,21 @@ export default function OutdoorPage() {
             {attractions.map((attr) => (
               <div key={attr.name}
                 className={`rounded-3xl bg-gradient-to-br ${attr.color} border ${attr.border}
-                p-8 shadow-card hover:shadow-card-lg hover:scale-[1.01] transition-all duration-300 group`}>
+                p-6 shadow-card hover:shadow-card-lg hover:scale-[1.01] transition-all duration-300 group flex flex-col`}>
+                
+                {/* Real Image instead of Emoji */}
+                <div className="relative w-full h-48 rounded-2xl overflow-hidden mb-5 border border-gold-100 shadow-sm flex-shrink-0">
+                  <img src={attr.imageUrl} alt={attr.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+
                 <div className="flex items-start gap-4 mb-4">
-                  <span className="text-5xl group-hover:animate-float">{attr.icon}</span>
-                  <div>
+                  <div className="flex-grow">
                     <h3 className="font-display text-gold-700 text-xl">{attr.name}</h3>
                     <p className="font-body text-gold-500 text-xs tracking-widest uppercase">{attr.eng}</p>
                   </div>
                 </div>
-                <p className="text-stone-600 font-body text-sm leading-relaxed mb-5">{attr.desc}</p>
-                <div className="flex flex-wrap gap-2">
+                <p className="text-stone-600 font-body text-sm leading-relaxed mb-5 flex-grow">{attr.desc}</p>
+                <div className="flex flex-wrap gap-2 mt-auto">
                   {attr.features.map((f) => (
                     <span key={f} className="text-xs px-3 py-1 rounded-full bg-white/70 text-stone-600 border border-stone-200 font-body shadow-sm">
                       ✓ {f}
@@ -196,7 +201,7 @@ export default function OutdoorPage() {
                     p-4 min-h-[90px] flex items-center justify-center shadow-sm">
                     <div className="text-center">
                       <span className="text-3xl">🛋️</span>
-                      <div className="text-xs text-amber-700 font-body mt-1 font-medium">평상 {i}구역</div>
+                      <div className="text-xs text-amber-700 font-body mt-1 font-medium font-bold">평상 {i}구역</div>
                     </div>
                   </div>
                   {/* BBQ */}
