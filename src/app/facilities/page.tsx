@@ -106,7 +106,7 @@ export default function FacilitiesPage() {
             {/* 실사 이미지 (우) */}
             <div className="relative rounded-3xl overflow-hidden border border-sky-200 shadow-card-lg order-1 lg:order-2">
               <img 
-                src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80" 
+                src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1000&q=80" 
                 alt="개인 탈의실" 
                 className="w-full h-[400px] object-cover" 
               />
