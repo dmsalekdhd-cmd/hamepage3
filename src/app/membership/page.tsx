@@ -59,6 +59,12 @@ export default function MembershipPage() {
     setAuthError('');
     setAuthSuccess('');
     setActionLoading(true);
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    if (!supabaseUrl || supabaseUrl === 'your_supabase_project_url') {
+      setAuthError('Supabase 연결 설정이 완료되지 않았습니다. .env.local 파일에 환경 변수를 입력해 주세요.');
+      setActionLoading(false);
+      return;
+    }
     try {
       if (authMode === 'login') {
         const { error } = await supabase.auth.signInWithPassword({ email, password });

@@ -35,6 +35,12 @@ export default function NewInquiryPage() {
     if (!user) return;
     setError('');
     setSubmitting(true);
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    if (!supabaseUrl || supabaseUrl === 'your_supabase_project_url') {
+      setError('Supabase 연결 설정이 완료되지 않았습니다. .env.local 파일에 환경 변수를 입력해 주세요.');
+      setSubmitting(false);
+      return;
+    }
     try {
       const { error } = await supabase.from('inquiries').insert({
         user_id: user.id,
