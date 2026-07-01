@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold:      #C8962A;
+  --gold-lt:   #FCD34D;
+  --sky:       #0EA5E9;
+  --teal:      #14B8A6;
+  --sand:      #FEF3C7;
+  --sand-dark: #F59E0B;
+  --palm:      #16A34A;
+  --bg:        #FFFBF0;
+  --text:      #1C1917;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── 스크롤바 ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #FEF3C7; }
+::-webkit-scrollbar-thumb { background: #C8962A; border-radius: 3px; }
+
+/* ══════════════════════════════════════════
+   공통 컴포넌트
+══════════════════════════════════════════ */
+@layer components {
+
+  /* 골드 버튼 */
+  .btn-gold {
+    @apply relative overflow-hidden inline-flex items-center justify-center
+    px-8 py-3 rounded-full font-body font-semibold text-white
+    bg-gradient-to-r from-gold-500 via-sand-500 to-gold-500
+    bg-[length:200%_100%] shadow-gold
+    transition-all duration-500
+    hover:bg-[position:right_center] hover:scale-105 hover:shadow-gold-lg
+    active:scale-95;
+  }
+
+  /* 하늘/바다 버튼 */
+  .btn-sky {
+    @apply relative overflow-hidden inline-flex items-center justify-center
+    px-8 py-3 rounded-full font-body font-semibold text-white
+    bg-gradient-to-r from-sky-500 via-teal-400 to-sky-500
+    shadow-sky transition-all duration-500
+    hover:scale-105 hover:shadow-teal
+    active:scale-95;
+  }
+
+  /* 흰 카드 (아라비안 황금 테두리) */
+  .card-arabian {
+    @apply relative rounded-3xl bg-white border border-gold-200
+    shadow-card hover:shadow-card-lg transition-shadow duration-300;
+  }
+
+  /* 하늘색 카드 (실내) */
+  .card-ocean {
+    @apply relative rounded-3xl bg-white border border-sky-200
+    shadow-card hover:shadow-card-lg transition-shadow duration-300;
+  }
+
+  /* 모래색 카드 */
+  .card-sand {
+    @apply relative rounded-3xl bg-sand-50 border border-sand-200
+    shadow-card hover:shadow-card-lg transition-shadow duration-300;
+  }
+
+  /* 섹션 제목 — 아라비안 골드 */
+  .title-arabian {
+    @apply font-display text-gold-600 text-4xl md:text-5xl tracking-widest drop-shadow;
+  }
+
+  /* 섹션 제목 — 바다/하늘 */
+  .title-ocean {
+    @apply font-display text-sky-600 text-4xl md:text-5xl tracking-wider;
+  }
+
+  /* 구분선 골드 */
+  .divider-gold {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-gold-400 to-transparent my-8;
+  }
+
+  /* 구분선 하늘 */
+  .divider-sky {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-sky-400 to-transparent my-8;
+  }
+
+  /* 뱃지 골드 */
+  .badge-gold {
+    @apply inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium
+    bg-gold-100 text-gold-700 border border-gold-300;
+  }
+
+  /* 뱃지 하늘 */
+  .badge-sky {
+    @apply inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium
+    bg-sky-100 text-sky-700 border border-sky-300;
+  }
+
+  /* 입력 필드 — 밝은 테마 */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl bg-white border border-gold-300
+    text-gray-800 placeholder-gray-400
+    focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400
+    transition-all duration-300 shadow-sm;
+  }
+
+  .input-ocean {
+    @apply w-full px-4 py-3 rounded-xl bg-white border border-sky-300
+    text-gray-800 placeholder-gray-400
+    focus:outline-none focus:ring-2 focus:ring-sky-400/50 focus:border-sky-400
+    transition-all duration-300 shadow-sm;
+  }
+}
+
+/* ── 야자수 SVG (CSS 장식) ── */
+.palm-left::before,
+.palm-right::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+  height: 260px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 200'%3E%3C!-- trunk --%3E%3Cpath d='M38 200 Q40 160 36 120 Q38 80 40 40' stroke='%23a16207' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C!-- leaves --%3E%3Cellipse cx='40' cy='40' rx='30' ry='8' fill='%2316a34a' transform='rotate(-30 40 40)'/%3E%3Cellipse cx='40' cy='38' rx='28' ry='7' fill='%2322c55e' transform='rotate(20 40 38)'/%3E%3Cellipse cx='40' cy='36' rx='26' ry='6' fill='%2316a34a' transform='rotate(-60 40 36)'/%3E%3Cellipse cx='40' cy='34' rx='24' ry='6' fill='%2322c55e' transform='rotate(50 40 34)'/%3E%3Cellipse cx='40' cy='32' rx='22' ry='5' fill='%2316a34a' transform='rotate(-10 40 32)'/%3E%3Cellipse cx='40' cy='30' rx='20' ry='5' fill='%2322c55e' transform='rotate(70 40 30)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+.palm-left::before  { left: 0; transform: scaleX(-1); }
+.palm-right::after  { right: 0; }
+
+/* ── 아라비안 패턴 (밝은 버전) ── */
+.arabic-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C8962A' fill-opacity='0.07' fill-rule='evenodd'%3E%3Cpath d='M40 0L50 30L80 40L50 50L40 80L30 50L0 40L30 30Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ── 물결 애니메이션 ── */
+@keyframes waveMove {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.wave-animate { animation: waveMove 8s linear infinite; }
+
+/* ── 반응형 ── */
+@media (max-width: 768px) {
+  .title-arabian { font-size: 2rem; }
+  .title-ocean   { font-size: 2rem; }
+}
