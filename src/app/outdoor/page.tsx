@@ -26,7 +26,7 @@ const attractions = [
     features: ['시간별 파도 운영', '구명조끼 대여 가능', '안전요원 상주'],
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1579684947550-22e945224d51?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80',
     name: '미끄럼틀',
     eng: 'Water Slide',
     desc: '아라비안 탑 형태의 워터슬라이드. 높이에서 내려오는 짜릿함과 함께 탁 트인 풍경을 즐겨보세요.',
@@ -35,7 +35,7 @@ const attractions = [
     features: ['2종 슬라이드', '키 110cm 이상 이용', '안전 계단 완비'],
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1564507592937-25994a9015b2?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=600&q=80',
     name: '영유아 수영장',
     eng: 'Kids Pool',
     desc: '영유아 전용 안전 수영장. 수심이 얕고 야자수 그늘 아래 설치되어 아이들이 안심하고 즐길 수 있어요.',
