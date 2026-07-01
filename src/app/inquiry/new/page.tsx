@@ -48,6 +48,9 @@ export default function NewInquiryPage() {
       } else {
         router.push('/inquiry');
       }
+    } catch (err: any) {
+      console.error(err);
+      setError('연결 오류가 발생했습니다. Supabase 설정 또는 네트워크 상태를 확인해주세요.');
     } finally {
       setSubmitting(false);
     }

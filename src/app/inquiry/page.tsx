@@ -43,9 +43,18 @@ export default function InquiryPage() {
 
   const handleDelete = async (id: string) => {
     if (!confirm('문의를 삭제하시겠습니까?')) return;
-    await supabase.from('inquiries').delete().eq('id', id);
-    setInquiries(prev => prev.filter(i => i.id !== id));
-    if (selected?.id === id) setSelected(null);
+    try {
+      const { error } = await supabase.from('inquiries').delete().eq('id', id);
+      if (error) {
+        alert('문의 삭제 중 오류가 발생했습니다: ' + error.message);
+      } else {
+        setInquiries(prev => prev.filter(i => i.id !== id));
+        if (selected?.id === id) setSelected(null);
+      }
+    } catch (err: any) {
+      console.error(err);
+      alert('연결 오류가 발생했습니다. Supabase 설정을 확인해주세요.');
+    }
   };
 
   const formatDate = (d: string) =>

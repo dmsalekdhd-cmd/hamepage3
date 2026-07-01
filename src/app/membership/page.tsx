@@ -71,6 +71,9 @@ export default function MembershipPage() {
         if (error) setAuthError(error.message);
         else setAuthSuccess('가입 완료! 이메일을 확인하거나 바로 로그인해 주세요.');
       }
+    } catch (err: any) {
+      console.error(err);
+      setAuthError('연결 오류가 발생했습니다. Supabase 설정 또는 네트워크 상태를 확인해주세요.');
     } finally {
       setActionLoading(false);
     }
@@ -88,7 +91,12 @@ export default function MembershipPage() {
       if (!error && user) {
         await fetchData(user.id);
         setTab('dashboard');
+      } else if (error) {
+        alert('이용권 구매 중 오류가 발생했습니다: ' + error.message);
       }
+    } catch (err: any) {
+      console.error(err);
+      alert('연결 오류가 발생했습니다. Supabase 설정을 확인해주세요.');
     } finally {
       setActionLoading(false);
     }
@@ -98,13 +106,20 @@ export default function MembershipPage() {
     if (!user) return;
     setActionLoading(true);
     try {
-      await supabase.from('entry_logs').insert({
+      const { error } = await supabase.from('entry_logs').insert({
         user_id: user.id,
         membership_id: membership.id,
         membership_type: membership.type,
         action,
       });
-      await fetchData(user.id);
+      if (error) {
+        alert('입퇴장 처리 중 오류가 발생했습니다: ' + error.message);
+      } else {
+        await fetchData(user.id);
+      }
+    } catch (err: any) {
+      console.error(err);
+      alert('연결 오류가 발생했습니다. Supabase 설정을 확인해주세요.');
     } finally {
       setActionLoading(false);
     }
