@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const attractions = [
   {
-    imageUrl: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=600&q=80',
     name: '유수풀',
     eng: 'Lazy River',
     desc: '야자수와 황금 아라비안 조형물이 늘어선 느긋한 유수풀. 튜브를 타고 이국적인 풍경을 감상하세요.',
@@ -17,7 +17,7 @@ const attractions = [
     features: ['튜브 대여 가능', '성인·어린이 모두 이용', '전장 약 150m'],
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=600&q=80',
     name: '파도풀',
     eng: 'Wave Pool',
     desc: '실감 나는 파도가 주기적으로 일어나는 대형 파도풀. 하와이 바다 느낌을 내륙에서 즐겨보세요!',
@@ -26,7 +26,7 @@ const attractions = [
     features: ['시간별 파도 운영', '구명조끼 대여 가능', '안전요원 상주'],
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1579684947550-22e945224d51?auto=format&fit=crop&w=600&q=80',
     name: '미끄럼틀',
     eng: 'Water Slide',
     desc: '아라비안 탑 형태의 워터슬라이드. 높이에서 내려오는 짜릿함과 함께 탁 트인 풍경을 즐겨보세요.',
@@ -35,7 +35,7 @@ const attractions = [
     features: ['2종 슬라이드', '키 110cm 이상 이용', '안전 계단 완비'],
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1564507592937-25994a9015b2?auto=format&fit=crop&w=600&q=80',
     name: '영유아 수영장',
     eng: 'Kids Pool',
     desc: '영유아 전용 안전 수영장. 수심이 얕고 야자수 그늘 아래 설치되어 아이들이 안심하고 즐길 수 있어요.',

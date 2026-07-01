@@ -47,10 +47,10 @@ const stats = [
 ];
 
 const outdoorHighlights = [
-  { imageUrl: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=400&q=80', name: '유수풀', desc: '야자수 따라 흐르는 물길', color: 'from-gold-50 to-amber-100', border: 'border-gold-200' },
-  { imageUrl: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=400&q=80', name: '파도풀', desc: '하와이 스타일 파도 체험', color: 'from-sky-50 to-teal-100', border: 'border-sky-200' },
-  { imageUrl: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=400&q=80', name: '미끄럼틀', desc: '짜릿한 워터슬라이드', color: 'from-orange-50 to-amber-100', border: 'border-orange-200' },
-  { imageUrl: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=400&q=80', name: '영유아풀', desc: '안전한 아이 전용 풀', color: 'from-teal-50 to-sky-100', border: 'border-teal-200' },
+  { imageUrl: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=400&q=80', name: '유수풀', desc: '야자수 따라 흐르는 물길', color: 'from-gold-50 to-amber-100', border: 'border-gold-200' },
+  { imageUrl: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=400&q=80', name: '파도풀', desc: '하와이 스타일 파도 체험', color: 'from-sky-50 to-teal-100', border: 'border-sky-200' },
+  { imageUrl: 'https://images.unsplash.com/photo-1579684947550-22e945224d51?auto=format&fit=crop&w=400&q=80', name: '미끄럼틀', desc: '짜릿한 워터슬라이드', color: 'from-orange-50 to-amber-100', border: 'border-orange-200' },
+  { imageUrl: 'https://images.unsplash.com/photo-1564507592937-25994a9015b2?auto=format&fit=crop&w=400&q=80', name: '영유아풀', desc: '안전한 아이 전용 풀', color: 'from-teal-50 to-sky-100', border: 'border-teal-200' },
 ];
 
 export default function HomePage() {
